@@ -1,7 +1,7 @@
 <x-guestLayout>
 
 
-    <div class="max-w-7xl flex mx-auto my-6 gap-6 p-2 ">
+    <div class="max-w-7xl md:flex mx-auto my-6 gap-6 p-2 ">
         <article class="flex flex-col space-y-2 p-3 bg-white shadow-md shadow-gray-300
          rounded-md hover:shadow-lg hover:shadow-gray-400">
             <a href="/post">
