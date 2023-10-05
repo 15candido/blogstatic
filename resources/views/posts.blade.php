@@ -1,8 +1,14 @@
 <x-guestLayout>
 
+    <?php foreach ($posts as $post) : ?>
 
-    <div class="max-w-7xl md:flex mx-auto my-6 gap-6 p-2 ">
-        <article class="flex flex-col space-y-2 p-3 bg-white shadow-md shadow-gray-300
+        <div class="max-w-7xl flex-row mx-auto my-6 gap-6 p-2">
+
+            <?= $post; ?>
+
+        <?php endforeach; ?>
+
+        <!-- <article class="flex flex-col space-y-2 p-3 bg-white shadow-md shadow-gray-300
          rounded-md hover:shadow-lg hover:shadow-gray-400">
             <a href="/posts/my-first-post">
                 <h1 class="font-bold text-2xl ">My First Post</h1>
@@ -52,7 +58,6 @@
                 quos doloremque nemo, vel voluptate laudantium voluptas placeat perferendis saepe maiores hic
                 enim incidunt rem explicabo modi.
             </p>
-        </article>
-    </div>
-
+        </article> -->
+        </div>
 </x-guestLayout>
