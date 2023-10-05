@@ -20,22 +20,7 @@ use Symfony\Component\Yaml\Yaml;
 
 Route::get('/', function () {
 
-    $files = File::files(resource_path("posts"));
-    $posts = [];
-
-    foreach ($files as $file) {
-        $document =  YamlFrontMatter::parseFile($file);
-
-        $posts[] = new Post(
-            $document->title,
-            $document->slug,
-            $document->excerpt,
-            $document->date,
-            $document->body()
-        );
-    }
-
-    // ddd($posts[1]->body);
+    $posts = Post::all();
     return view('posts', [
         "posts" => $posts
     ]);
