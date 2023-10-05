@@ -1,14 +1,13 @@
 <x-guestLayout>
-    <div class="max-w-7xl flex mx-auto my-6 gap-6 p-2">
-        <!-- <article class="flex flex-col space-y-2 p-3 bg-white shadow-md shadow-gray-300
-         rounded-md hover:shadow-lg hover:shadow-gray-400">
-            <a href="/post">
-                <h1 class="font-bold text-2xl ">My First Post</h1>
-            </a> -->
-        <p class="leading-6 ">
-            <?= $post; ?>
+    <div class="max-w-7xl flex-col mx-auto my-6 space-y-6 p-2">
+        <h1 class="font-bold text-2xl">{!! $post->title !!}</h1>
+        <p class="leading-6">
+            {!! $post->body !!}
         </p>
-        <!-- <a href="/" class="font-extrabold text-base uppercase text-red-400">Go Back</a>
-        </article> -->
+        <a href="/">
+            <button class="bg-red-500 hover:bg-red-700 text-white py-2 px-4 rounded-md 
+            font-extrabold text-base uppercas">Go Back</button>
+        </a>
+
     </div>
 </x-guestLayout>
