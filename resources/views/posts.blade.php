@@ -1,4 +1,4 @@
-<x-guestLayout>
+<x-GuestLayout>
     <div class="max-w-7xl flex mx-auto my-6 gap-6 p-2">
         @foreach ($posts as $post)
         <article class="w-full flex flex-col my-6 space-y-2 p-3 bg-white shadow-md shadow-gray-300 rounded-md hover:shadow-lg
@@ -10,4 +10,4 @@
         </article>
         @endforeach
     </div>
-</x-guestLayout>
+</x-GuestLayout>

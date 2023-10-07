@@ -1,4 +1,4 @@
-<x-guestLayout>
+<x-GuestLayout>
     <div class="max-w-7xl flex-col mx-auto my-6 space-y-6 p-2">
         <h1 class="font-bold text-2xl">{!! $post->title !!}</h1>
         <p class="leading-6">
@@ -10,4 +10,4 @@
         </a>
 
     </div>
-</x-guestLayout>
+</x-GuestLayout>
