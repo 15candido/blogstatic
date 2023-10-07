@@ -1,11 +1,7 @@
 <?php
 
 use App\Models\Post;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
-use PhpParser\Node\Expr\New_;
-use Spatie\YamlFrontMatter\YamlFrontMatter;
-use Symfony\Component\Yaml\Yaml;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +23,9 @@ Route::get('/', function () {
 });
 
 Route::get('posts/{post}', function ($slug) {
-
     //Find a post by it's slug and pass it to view called "post"
-    $post = Post::find($slug);
+    $post = Post::findOrFail($slug);
     return view("post", [
         "post" => $post
     ]);
-})->where('post', '[A-z_\-]+');
+});//->where('post', '[A-z_\-]+');
