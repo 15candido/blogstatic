@@ -27,24 +27,45 @@ class Post //extends Model
 
     public static function all()
     {
-        // Find all files on Posts directory
-        $files = File::files(resource_path("posts"));
-        //  And collect them in to collection 
-        return collect($files)
-            // Map over on each item and reach one, parse that file into document
-            ->map(function ($file) {
-                return YamlFrontMatter::parseFile($file);
-            })
-            // Once have a collection of documents, map over into second time and build the post
-            ->map(function ($document) {
-                return new Post(
-                    $document->title,
-                    $document->slug,
-                    $document->excerpt,
-                    $document->date,
-                    $document->body()
-                );
-            });
+
+        return cache()->rememberForever('posts.all', function () {
+            $files = File::files(resource_path("posts"));
+            return collect($files)
+                ->map(function ($file) {
+                    return YamlFrontMatter::parseFile($file);
+                })
+                ->map(function ($document) {
+                    return new Post(
+                        $document->title,
+                        $document->slug,
+                        $document->excerpt,
+                        $document->date,
+                        $document->body()
+                    );
+                });
+        })
+            ->sortByDesc('date');
+
+
+        // // Find all files on Posts directory
+        // $files = File::files(resource_path("posts"));
+        // //  And collect them in to collection 
+        // return collect($files)
+        //     // Map over on each item and reach one, parse that file into document
+        //     ->map(function ($file) {
+        //         return YamlFrontMatter::parseFile($file);
+        //     })
+        //     // Once have a collection of documents, map over into second time and build the post
+        //     ->map(function ($document) {
+        //         return new Post(
+        //             $document->title,
+        //             $document->slug,
+        //             $document->excerpt,
+        //             $document->date,
+        //             $document->body()
+        //         );
+        //     })
+        //     ->sortByDesc('date');
 
         // Use of map arry of objects
         // $posts = array_map(function ($file) {
