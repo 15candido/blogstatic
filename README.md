@@ -9,3 +9,4 @@
 - Collection shorting and caching refresher
 
 ## The Blade 
+-- Enveromment files and database connectios 
