@@ -95,10 +95,9 @@ class Post //extends Model
         // }
     }
 
+    // Of all the blog post, find the one with a slug match the one that was requested
     public static function find($slug)
     {
-
-        // Of all the blog post, find the one with a slug match the one that was requested
 
         $posts = static::all();
         return $posts->firstWhere('slug', $slug);
@@ -110,5 +109,16 @@ class Post //extends Model
         // return cache()->remember("posts.{$slug}", 5, function () use ($path) {
         //     return file_get_contents($path);   //var_dump('file_get_contents');
         // });
+    }
+
+    // Find or fail 
+    public static function findOrFail($slug)
+    {
+        $post = static::find($slug);
+        if (!$post) {
+            throw new ModelNotFoundException();
+        } else {
+            return $post;
+        }
     }
 }
